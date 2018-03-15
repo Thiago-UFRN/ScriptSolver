@@ -38,7 +38,7 @@ source .bashrc
 sudo cp ../BONMIN_LIB/* /usr/lib
 sudo ldconfig
 
-cd /usr/opt/ipopt
+cd /etc/opt/ipopt
 git clone https://github.com/stanle/madopt.git
 cd madopt
 mkdir build
