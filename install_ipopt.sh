@@ -8,7 +8,7 @@ sudo apt install -y git
 sudo apt install -y build-essential
 sudo apt install -y cmake
 
-cd /usr/opt/
+cd /etc/opt/
 mkdir ipopt
 cd ipopt
 svn co https://projects.coin-or.org/svn/Bonmin/stable/1.8 Bonmin-stable
