@@ -9,42 +9,43 @@ sudo apt install -y build-essential
 sudo apt install -y cmake
 
 cd /etc/opt/
-mkdir ipopt
+sudo mkdir ipopt
 cd ipopt
-svn co https://projects.coin-or.org/svn/Bonmin/stable/1.8 Bonmin-stable
+sudo svn co https://projects.coin-or.org/svn/Bonmin/stable/1.8 Bonmin-stable
 
 cd Bonmin-stable
 cd ThirdParty/ASL
-./get.ASL
+sudo ./get.ASL
 cd ../Blas
-./get.Blas
+sudo ./get.Blas
 cd ../Lapack
-./get.Lapack
+sudo ./get.Lapack
 cd ../Mumps
-./get.Mumps
+sudo ./get.Mumps
 
 cd ..
 cd ..
 
-mkdir build
+sudo mkdir build
 cd build
-../configure -C
-make
-make test
-make install
+sudo ../configure -C
+sudo make
+sudo make test
+sudo make install
 cd ~
 echo "export BONMIN_LIB=/etc/opt/ipopt/Bonmin-stable/build/lib" >> .bashrc
+echo "export BONMIN_INCLUDE=/etc/opt/ipopt/Bonmin-stable/build/include" >> .bashrc
 source .bashrc
-sudo cp ../BONMIN_LIB/* /usr/lib
+sudo cp $BONMIN_LIB/* /usr/lib
 sudo ldconfig
 
 cd /etc/opt/ipopt
-git clone https://github.com/stanle/madopt.git
+sudo git clone https://github.com/stanle/madopt.git
 cd madopt
-mkdir build
+sudo mkdir build
 cd build
-cmake -DCUSTOM_LIBRARY=$BONMIN_LIB -DCUSTOM_INCLUDE=$BONMIN_INCLUDE ..
-make
+sudo cmake -DCUSTOM_LIBRARY=$BONMIN_LIB -DCUSTOM_INCLUDE=$BONMIN_INCLUDE ..
+sudo make
 sudo make install
 cd ~
 echo "export MADOPT_LIB=/etc/opt/ipopt/madopt/build" >> .bashrc
