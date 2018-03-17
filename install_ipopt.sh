@@ -37,7 +37,6 @@ export BONMIN_LIB=/etc/opt/ipopt/Bonmin-stable/build/lib
 echo "export BONMIN_LIB=/etc/opt/ipopt/Bonmin-stable/build/lib" >> .bashrc
 export BONMIN_INCLUDE=/etc/opt/ipopt/Bonmin-stable/build/include
 echo "export BONMIN_INCLUDE=/etc/opt/ipopt/Bonmin-stable/build/include" >> .bashrc
-source .bashrc
 sudo cp $BONMIN_LIB/* /usr/lib
 sudo ldconfig
 
@@ -54,4 +53,4 @@ export MADOPT_LIB=/etc/opt/ipopt/madopt/build
 echo "export MADOPT_LIB=/etc/opt/ipopt/madopt/build" >> .bashrc
 export MADOPT_INCLUDE=/etc/opt/ipopt/madopt/src
 echo "export MADOPT_INCLUDE=/etc/opt/ipopt/madopt/src" >> .bashrc
-source .bashrc
+exec bash
